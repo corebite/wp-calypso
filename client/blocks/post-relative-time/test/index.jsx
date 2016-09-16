@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React from 'react';
-import { expect } from 'chai';
+import { expect, assert } from 'chai';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 
@@ -64,5 +64,18 @@ describe( 'PostRelativeTime', () => {
 
 		const text = wrapper.find( '.post-relative-time__text' ).text();
 		expect( text ).to.equal( moment( post.date ).fromNow() );
+	} );
+
+	it( 'should render placeholder when post is null', () => {
+		const post = null;
+
+		const wrapper = shallow(
+			<PostRelativeTime
+				post={ post }
+				moment={ moment }
+			/>
+		);
+
+		assert( wrapper.hasClass( 'is-placeholder' ) );
 	} );
 } );

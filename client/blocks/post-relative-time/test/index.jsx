@@ -12,6 +12,20 @@ import moment from 'moment';
 import { PostRelativeTime } from 'blocks/post-relative-time';
 
 describe( 'PostRelativeTime', () => {
+	it( 'should display a recent time if there is no post', () => {
+		const post = null;
+
+		const wrapper = shallow(
+			<PostRelativeTime
+				post={ post }
+				moment={ moment }
+			/>
+		);
+
+		const text = wrapper.find( '.post-relative-time__text' ).text();
+		expect( text ).to.equal( moment().fromNow() );
+	} );
+
 	it( 'should use the modified date if the post status is draft', () => {
 		const post = {
 			status: 'draft',
@@ -48,7 +62,7 @@ describe( 'PostRelativeTime', () => {
 		expect( text ).to.equal( moment( post.modified ).fromNow() );
 	} );
 
-	it( 'should use the modified date if the post status is not pending/draft', () => {
+	it( 'should use the actual date if the post status is not pending/draft', () => {
 		const post = {
 			status: 'publish',
 			modified: '2016-09-14T15:47:33-04:00',

@@ -12,6 +12,18 @@ import moment from 'moment';
 import { PostRelativeTime } from 'blocks/post-relative-time';
 
 describe( 'PostRelativeTime', () => {
+	it( 'should contain a time gridicon', () => {
+		const wrapper = shallow(
+			<PostRelativeTime
+				moment={ moment }
+			/>
+		);
+
+		const icon = wrapper.find( '.post-relative-time__icon' );
+		expect( icon.props().icon ).to.be.equal( 'time' );
+		expect( icon.props().size ).to.be.equal( 18 );
+	} );
+
 	it( 'should display a recent time if there is no post', () => {
 		const post = null;
 

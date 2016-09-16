@@ -12,7 +12,7 @@ import moment from 'moment';
 import { PostRelativeTime } from 'blocks/post-relative-time';
 
 describe( 'PostRelativeTime', () => {
-	it ( 'should use the modified date if the post status is draft', () => {
+	it( 'should use the modified date if the post status is draft', () => {
 		const post = {
 			status: 'draft',
 			modified: '2016-09-14T15:47:33-04:00',
@@ -30,7 +30,7 @@ describe( 'PostRelativeTime', () => {
 		expect( text ).to.equal( moment( post.modified ).fromNow() );
 	} );
 
-	it ( 'should use the modified date if the post status is pending', () => {
+	it( 'should use the modified date if the post status is pending', () => {
 		const post = {
 			status: 'pending',
 			modified: '2016-09-14T15:47:33-04:00',
@@ -48,7 +48,7 @@ describe( 'PostRelativeTime', () => {
 		expect( text ).to.equal( moment( post.modified ).fromNow() );
 	} );
 
-	it ( 'should use the modified date if the post status is not pending/draft', () => {
+	it( 'should use the modified date if the post status is not pending/draft', () => {
 		const post = {
 			status: 'publish',
 			modified: '2016-09-14T15:47:33-04:00',

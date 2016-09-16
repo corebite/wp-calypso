@@ -2,7 +2,7 @@
  * External dependencies
  */
 import React from 'react';
-import { expect, assert } from 'chai';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 
@@ -102,6 +102,6 @@ describe( 'PostRelativeTime', () => {
 			/>
 		);
 
-		assert( wrapper.hasClass( 'is-placeholder' ) );
+		expect( wrapper.hasClass( 'is-placeholder' ) ).to.be.true;
 	} );
 } );

@@ -35,7 +35,7 @@ describe( 'PostRelativeTime', () => {
 		);
 
 		const text = wrapper.find( '.post-relative-time__text' ).text();
-		expect( text ).to.equal( moment().fromNow() );
+		expect( text ).to.equal( 'a few seconds ago' );
 	} );
 
 	it( 'should use the modified date if the post status is draft', () => {
